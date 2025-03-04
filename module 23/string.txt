@@ -1,0 +1,115 @@
+===== Question 1 =====
+Write a simple String program to take input from the user.
+
+Answer:
+import java.util.Scanner;
+
+public class UserInputExample {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+        System.out.println("You entered: " + input);
+        scanner.close();
+    }
+}
+
+
+===== Question 2 =====
+How do you concatenate two strings in Java? Give an example.
+
+Answer:
+In Java, you can concatenate two strings using the `+` operator or the `concat()` method.
+
+Example:
+public class ConcatenateStrings {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+        String result = str1 + " " + str2; // Using + operator
+        System.out.println("Concatenated string: " + result);
+
+        String result2 = str1.concat(" ").concat(str2); // Using concat() method
+        System.out.println("Concatenated string: " + result2);
+    }
+}
+
+
+===== Question 3 =====
+How do you find the length of a string in Java? Explain with an example.
+
+Answer:
+In Java, you can find the length of a string using the `length()` method.
+
+Example:
+public class StringLengthExample {
+    public static void main(String[] args) {
+        String str = "Hello, World!";
+        int length = str.length();
+        System.out.println("Length of the string: " + length);
+    }
+}
+
+
+===== Question 4 =====
+How do you compare two strings in Java? Give an example.
+
+Answer:
+In Java, you can compare two strings using the `equals()` method for content comparison or the `==` operator for reference comparison.
+
+Example:
+public class CompareStrings {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "Hello";
+        String str3 = new String("Hello");
+
+        // Using equals() method (content comparison)
+        System.out.println("str1 equals str2: " + str1.equals(str2)); // true
+        System.out.println("str1 equals str3: " + str1.equals(str3)); // true
+
+        // Using == operator (reference comparison)
+        System.out.println("str1 == str2: " + (str1 == str2)); // true
+        System.out.println("str1 == str3: " + (str1 == str3)); // false
+    }
+}
+
+
+===== Question 5 =====
+Write a program to find the length of the string "refrigerator".
+
+Answer:
+public class StringLength {
+    public static void main(String[] args) {
+        String str = "refrigerator";
+        int length = str.length();
+        System.out.println("Length of the string 'refrigerator': " + length);
+    }
+}
+
+
+===== Question 6 =====
+Write a program to check if the letter 'e' is present in the word 'Umbrella'.
+
+Answer:
+public class CheckLetter {
+    public static void main(String[] args) {
+        String word = "Umbrella";
+        char letter = 'e';
+        boolean isPresent = word.indexOf(letter) != -1;
+        System.out.println("Is the letter 'e' present in 'Umbrella'? " + isPresent);
+    }
+}
+
+
+===== Question 7 =====
+Write a program to delete all consonants from the string "Hello, have a good day".
+
+Answer:
+public class RemoveConsonants {
+    public static void main(String[] args) {
+        String input = "Hello, have a good day";
+        String result = input.replaceAll("[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]", "");
+        System.out.println("String after removing consonants: " + result);
+    }
+}
