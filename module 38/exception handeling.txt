@@ -1,0 +1,99 @@
+===== Question 1 =====
+Explain different types of Errors in Java.
+
+Answer:
+In Java, errors are serious issues that typically cannot be handled by the program. They are usually caused by the environment in which the program is running. The main types of errors are:
+1. **OutOfMemoryError**: Occurs when the JVM runs out of memory.
+2. **StackOverflowError**: Occurs when the stack overflows due to excessive recursion or deep method calls.
+3. **LinkageError**: Occurs when there is an issue with class dependencies or linking.
+4. **VirtualMachineError**: Occurs when the JVM encounters a critical issue, such as resource exhaustion.
+
+
+===== Question 2 =====
+What is an Exception in Java?
+
+Answer:
+An exception in Java is an event that disrupts the normal flow of a program. It is an object that represents an error or an unexpected condition that occurs during the execution of a program. Exceptions can be handled using try-catch blocks to ensure the program continues running or fails gracefully.
+
+
+===== Question 3 =====
+How can you handle exceptions in Java? Explain with an example.
+
+Answer:
+Exceptions in Java can be handled using try-catch blocks. The `try` block contains the code that might throw an exception, and the `catch` block contains the code to handle the exception.
+
+Example:
+public class ExceptionHandlingExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0; // This will throw an ArithmeticException
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught: " + e.getMessage());
+        }
+    }
+}
+
+Output:
+Exception caught: / by zero
+
+
+===== Question 4 =====
+Why do we need exception handling in Java?
+
+Answer:
+Exception handling in Java is needed for the following reasons:
+1. **Graceful Termination**: It allows the program to terminate gracefully instead of crashing.
+2. **Error Recovery**: It provides a way to recover from errors and continue program execution.
+3. **Debugging**: It helps in identifying and debugging errors in the program.
+4. **User-Friendly Messages**: It allows you to display user-friendly error messages instead of technical stack traces.
+
+
+===== Question 5 =====
+What is the difference between exception and error in Java?
+
+Answer:
+1. **Exception**:
+   - Represents an issue that can be handled by the program.
+   - Occurs due to logical errors in the code.
+   - Can be caught and handled using try-catch blocks.
+   - Example: `ArithmeticException`, `NullPointerException`.
+
+2. **Error**:
+   - Represents a serious issue that cannot be handled by the program.
+   - Occurs due to system or environmental issues.
+   - Cannot be caught or handled easily.
+   - Example: `OutOfMemoryError`, `StackOverflowError`.
+
+
+===== Question 6 =====
+Name the different types of exceptions in Java.
+
+Answer:
+The different types of exceptions in Java are:
+1. **Checked Exceptions**: These are checked at compile-time. Example: `IOException`, `SQLException`.
+2. **Unchecked Exceptions**: These are checked at runtime. Example: `ArithmeticException`, `NullPointerException`.
+3. **Errors**: These are serious issues that cannot be handled by the program. Example: `OutOfMemoryError`, `StackOverflowError`.
+
+
+===== Question 7 =====
+Can we just use `try` instead of `finally` and `catch` blocks?
+
+Answer:
+No, you cannot use only the `try` block without `catch` or `finally`. The `try` block must be followed by either a `catch` block, a `finally` block, or both. The `catch` block is used to handle exceptions, and the `finally` block is used to execute code regardless of whether an exception occurs.
+
+Example:
+public class TryFinallyExample {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 2;
+            System.out.println("Result: " + result);
+        } finally {
+            System.out.println("This will always execute.");
+        }
+    }
+}
+
+Output:
+Result: 5
+This will always execute.
