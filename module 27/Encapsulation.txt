@@ -1,0 +1,122 @@
+===== Question 1 =====
+What is Encapsulation in Java? Why is it called Data hiding?
+
+Answer:
+Encapsulation in Java is a mechanism of wrapping the data (variables) and code (methods) together as a single unit. It is achieved by declaring the variables of a class as private and providing public getter and setter methods to access and modify these variables.
+
+Encapsulation is called data hiding because it restricts direct access to the data (variables) from outside the class. The data can only be accessed through the methods (getters and setters), which ensures control over how the data is accessed or modified.
+
+
+===== Question 2 =====
+What are the important features of Encapsulation?
+
+Answer:
+The important features of encapsulation are:
+1. **Data Hiding**: The data (variables) of a class are hidden from outside the class and can only be accessed through methods.
+2. **Access Control**: Encapsulation allows you to control how the data is accessed or modified using getter and setter methods.
+3. **Flexibility**: You can change the internal implementation of the class without affecting the code that uses the class.
+4. **Reusability**: Encapsulated code can be reused in other parts of the program or in other programs.
+5. **Maintainability**: Encapsulation makes the code easier to maintain and debug.
+
+
+===== Question 3 =====
+What are getter and setter methods in Java? Explain with an example.
+
+Answer:
+Getter and setter methods are used to access and modify the private variables of a class.
+
+- **Getter Method**: A method used to retrieve the value of a private variable.
+- **Setter Method**: A method used to set or update the value of a private variable.
+
+Example:
+public class Student {
+    private String name; // Private variable
+
+    // Getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student student = new Student();
+        student.setName("John"); // Set the name using setter
+        System.out.println("Student name: " + student.getName()); // Get the name using getter
+    }
+}
+
+
+===== Question 4 =====
+What is the use of the `this` keyword? Explain with an example.
+
+Answer:
+The `this` keyword in Java refers to the current object of the class. It is used to:
+1. Differentiate between instance variables and method parameters when they have the same name.
+2. Invoke the current class constructor or method.
+
+Example:
+public class Employee {
+    private String name;
+
+    // Constructor using 'this' keyword
+    public Employee(String name) {
+        this.name = name; // 'this.name' refers to the instance variable
+    }
+
+    // Method using 'this' keyword
+    public void display() {
+        System.out.println("Employee name: " + this.name);
+    }
+}
+
+
+===== Question 5 =====
+What is the advantage of Encapsulation?
+
+Answer:
+The advantages of encapsulation are:
+1. **Data Hiding**: Protects the internal state of an object by preventing direct access to the data.
+2. **Flexibility**: Allows you to change the internal implementation of a class without affecting the code that uses the class.
+3. **Reusability**: Encapsulated code can be reused in other parts of the program or in other programs.
+4. **Maintainability**: Makes the code easier to maintain and debug.
+5. **Control**: Provides control over how the data is accessed or modified using getter and setter methods.
+
+
+===== Question 6 =====
+How to achieve encapsulation in Java? Give an example.
+
+Answer:
+Encapsulation in Java is achieved by:
+1. Declaring the variables of a class as private.
+2. Providing public getter and setter methods to access and modify these variables.
+
+Example:
+public class Account {
+    private double balance; // Private variable
+
+    // Getter method for balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Setter method for balance
+    public void setBalance(double balance) {
+        if (balance > 0) { // Validation
+            this.balance = balance;
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Account account = new Account();
+        account.setBalance(1000); // Set balance using setter
+        System.out.println("Account balance: " + account.getBalance()); // Get balance using getter
+    }
+}
