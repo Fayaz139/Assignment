@@ -1,0 +1,141 @@
+===== Question 1 =====
+Program to display current date and time in Java.
+
+Answer:
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class CurrentDateTime {
+    public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String formattedDateTime = now.format(formatter);
+        System.out.println("Current Date and Time: " + formattedDateTime);
+    }
+}
+
+
+===== Question 2 =====
+Write a program to convert a date to a string in the format “MM/dd/yyyy”.
+
+Answer:
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class DateToString {
+    public static void main(String[] args) {
+        LocalDate date = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        String formattedDate = date.format(formatter);
+        System.out.println("Formatted Date: " + formattedDate);
+    }
+}
+
+
+===== Question 3 =====
+What is the difference between collections and streams? Explain with an example.
+
+Answer:
+1. **Collections**:
+   - Collections are in-memory data structures that store and manage groups of objects.
+   - They are used for storing, retrieving, and manipulating data.
+   - Example: `ArrayList`, `HashSet`, `HashMap`.
+
+2. **Streams**:
+   - Streams are a sequence of elements that support functional-style operations (e.g., filter, map, reduce).
+   - They are used for processing data in a declarative way, often in parallel.
+   - Streams do not store data; they operate on a source (e.g., a collection) and produce a result.
+
+Example:
+import java.util.Arrays;
+import java.util.List;
+
+public class CollectionsVsStreams {
+    public static void main(String[] args) {
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+
+        // Using Collections
+        for (String name : names) {
+            if (name.startsWith("A")) {
+                System.out.println(name);
+            }
+        }
+
+        // Using Streams
+        names.stream()
+             .filter(name -> name.startsWith("A"))
+             .forEach(System.out::println);
+    }
+}
+
+
+===== Question 4 =====
+What are enums in Java? Explain with an example.
+
+Answer:
+Enums (enumerations) in Java are a special type of class that represents a group of constants. They are used to define a fixed set of values that a variable can take.
+
+Example:
+public enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
+
+public class EnumExample {
+    public static void main(String[] args) {
+        Day today = Day.MONDAY;
+        System.out.println("Today is: " + today);
+
+        // Switch case with enum
+        switch (today) {
+            case MONDAY:
+                System.out.println("It's Monday!");
+                break;
+            case FRIDAY:
+                System.out.println("It's Friday!");
+                break;
+            default:
+                System.out.println("It's some other day.");
+        }
+    }
+}
+
+
+===== Question 5 =====
+What are built-in annotations in Java?
+
+Answer:
+Built-in annotations in Java are predefined annotations provided by the Java language. Some commonly used built-in annotations are:
+1. **@Override**: Indicates that a method is intended to override a method in a superclass.
+2. **@Deprecated**: Marks a method, class, or field as deprecated (no longer recommended for use).
+3. **@SuppressWarnings**: Suppresses compiler warnings for a specific part of the code.
+4. **@FunctionalInterface**: Indicates that an interface is a functional interface (contains exactly one abstract method).
+
+Example:
+class Parent {
+    void display() {
+        System.out.println("Parent class");
+    }
+}
+
+class Child extends Parent {
+    @Override
+    void display() {
+        System.out.println("Child class");
+    }
+
+    @Deprecated
+    void oldMethod() {
+        System.out.println("This method is deprecated.");
+    }
+
+    @SuppressWarnings("unchecked")
+    void uncheckedWarning() {
+        List list = new ArrayList();
+        list.add("Hello");
+    }
+}
+
+@FunctionalInterface
+interface MyFunctionalInterface {
+    void myMethod();
+}
