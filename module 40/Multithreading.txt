@@ -1,0 +1,157 @@
+===== Question 1 =====
+What do you mean by Multithreading? Why is it important?
+
+Answer:
+Multithreading is the ability of a CPU (or a single core in a multi-core processor) to execute multiple threads concurrently. In Java, multithreading allows a program to perform multiple tasks simultaneously by dividing the program into smaller threads.
+
+Importance of Multithreading:
+1. **Improved Performance**: Multithreading allows better utilization of CPU resources, leading to faster execution of tasks.
+2. **Responsiveness**: It improves the responsiveness of applications, especially in GUI-based programs.
+3. **Efficient Resource Sharing**: Threads share the same memory space, making it easier to share resources and communicate between threads.
+4. **Concurrency**: It enables concurrent execution of tasks, which is essential for modern applications like web servers, gaming, and real-time systems.
+
+
+===== Question 2 =====
+What are the benefits of using Multithreading?
+
+Answer:
+The benefits of using multithreading are:
+1. **Improved Performance**: By executing multiple threads concurrently, the CPU can handle more tasks in less time.
+2. **Better Resource Utilization**: Multithreading allows efficient use of CPU and memory resources.
+3. **Enhanced Responsiveness**: Applications remain responsive, especially in GUI-based programs, as tasks are handled in separate threads.
+4. **Simplified Modeling**: Multithreading simplifies the modeling of complex systems where multiple tasks need to run simultaneously.
+5. **Concurrency**: It enables concurrent execution of tasks, which is essential for real-time systems and modern applications.
+
+
+===== Question 3 =====
+What is a Thread in Java?
+
+Answer:
+A thread in Java is the smallest unit of a process that can be executed independently. It is a lightweight sub-process that shares the same memory space as other threads in the same process. Threads allow a program to perform multiple tasks concurrently.
+
+Example:
+public class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread is running.");
+    }
+
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.start(); // Start the thread
+    }
+}
+
+
+===== Question 4 =====
+What are the two ways of implementing a thread in Java?
+
+Answer:
+There are two ways to implement a thread in Java:
+1. **Extending the `Thread` class**:
+   - Create a class that extends the `Thread` class.
+   - Override the `run()` method to define the thread's task.
+   - Create an object of the class and call the `start()` method to start the thread.
+
+   Example:
+   public class MyThread extends Thread {
+       public void run() {
+           System.out.println("Thread is running.");
+       }
+
+       public static void main(String[] args) {
+           MyThread thread = new MyThread();
+           thread.start();
+       }
+   }
+
+2. **Implementing the `Runnable` interface**:
+   - Create a class that implements the `Runnable` interface.
+   - Override the `run()` method to define the thread's task.
+   - Create an object of the class and pass it to a `Thread` object.
+   - Call the `start()` method to start the thread.
+
+   Example:
+   public class MyRunnable implements Runnable {
+       public void run() {
+           System.out.println("Thread is running.");
+       }
+
+       public static void main(String[] args) {
+           MyRunnable myRunnable = new MyRunnable();
+           Thread thread = new Thread(myRunnable);
+           thread.start();
+       }
+   }
+
+
+===== Question 5 =====
+What’s the difference between a thread and a process?
+
+Answer:
+1. **Thread**:
+   - A thread is the smallest unit of execution within a process.
+   - Threads share the same memory space and resources of the process.
+   - Threads are lightweight and have less overhead compared to processes.
+   - Example: Multiple threads in a Java program.
+
+2. **Process**:
+   - A process is an independent program in execution.
+   - Processes have their own memory space and resources.
+   - Processes are heavyweight and have more overhead compared to threads.
+   - Example: Running multiple applications like a browser and a text editor simultaneously.
+
+
+===== Question 6 =====
+How can we create daemon threads?
+
+Answer:
+A daemon thread in Java is a thread that runs in the background and provides services to user threads. It automatically terminates when all user threads finish execution. To create a daemon thread:
+1. Create a thread object.
+2. Use the `setDaemon(true)` method to mark it as a daemon thread.
+3. Start the thread using the `start()` method.
+
+Example:
+public class DaemonThreadExample {
+    public static void main(String[] args) {
+        Thread daemonThread = new Thread(() -> {
+            while (true) {
+                System.out.println("Daemon thread is running.");
+            }
+        });
+
+        daemonThread.setDaemon(true); // Set as daemon thread
+        daemonThread.start();
+
+        System.out.println("Main thread finished.");
+    }
+}
+
+
+===== Question 7 =====
+What are the `wait()` and `sleep()` methods?
+
+Answer:
+1. **`wait()` Method**:
+   - The `wait()` method is used in synchronization to make a thread wait until another thread notifies it.
+   - It releases the lock on the object and waits for a notification.
+   - It must be called from a synchronized context.
+   - Example: Used in producer-consumer problems.
+
+2. **`sleep()` Method**:
+   - The `sleep()` method pauses the execution of the current thread for a specified amount of time.
+   - It does not release the lock on the object.
+   - Example: Used to introduce a delay in thread execution.
+
+Example of `wait()` and `sleep()`:
+public class WaitSleepExample {
+    public static void main(String[] args) throws InterruptedException {
+        synchronized (WaitSleepExample.class) {
+            System.out.println("Thread is waiting.");
+            WaitSleepExample.class.wait(1000); // Wait for 1 second
+            System.out.println("Thread resumed.");
+        }
+
+        Thread.sleep(1000); // Sleep for 1 second
+        System.out.println("Thread finished.");
+    }
+}
