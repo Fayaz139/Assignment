@@ -1,0 +1,28 @@
+1. What is a Constructor?  
+A constructor is a special method in Java that initializes an object. It has the same name as the class and no return type. It is invoked automatically when an object is created.  
+
+2. What is Constructor Chaining?  
+Constructor chaining is the process of calling one constructor from another within the same class using `this()` or from a superclass constructor using `super()`. It helps in code reuse.  
+
+3. Can we call a subclass constructor from a superclass constructor?  
+No, a superclass constructor cannot directly call a subclass constructor. The superclass constructor executes first, and the subclass constructor is invoked afterward.  
+
+4. What happens if you keep a return type for a constructor?  
+If a return type is added to a constructor, it becomes a regular method and is not treated as a constructor, leading to improper object initialization.  
+
+5. What is No-arg constructor?  
+A no-arg constructor is a constructor that takes no parameters. It initializes an object with default values.  
+Example: `class Example { Example() { System.out.println("No-arg constructor called"); } }`  
+
+6. How is a No-argument constructor different from the Default Constructor?  
+A default constructor is automatically provided by Java if no constructor is defined, while a no-argument constructor is explicitly written by the programmer.  
+Example: `class DefaultConstructor { DefaultConstructor() { System.out.println("No-argument constructor"); } }`  
+
+7. When do we need Constructor Overloading?  
+Constructor overloading is needed when different ways of initializing an object are required. It allows multiple constructors with different parameters.  
+Example: `class OverloadExample { int x; OverloadExample() { x = 0; } OverloadExample(int value) { x = value; } }`  
+
+8. What is Default Constructor? Explain with an Example.  
+A default constructor is a constructor that is automatically provided by Java when no constructor is explicitly defined. It initializes objects with default values.  
+Example:  
+`class DefaultExample { int x; DefaultExample() { x = 10; } void display() { System.out.println("Value: " + x); } } public class Main { public static void main(String[] args) { DefaultExample obj = new DefaultExample(); obj.display(); } }`  
