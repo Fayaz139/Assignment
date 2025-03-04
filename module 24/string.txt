@@ -1,0 +1,215 @@
+===== Question 1 =====
+WAP to remove duplicates from a String.
+
+Answer:
+public class RemoveDuplicates {
+    public static String removeDuplicates(String str) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            char currentChar = str.charAt(i);
+            if (result.indexOf(String.valueOf(currentChar)) == -1) {
+                result.append(currentChar);
+            }
+        }
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        String input = "hello world";
+        System.out.println("Original String: " + input);
+        System.out.println("String after removing duplicates: " + removeDuplicates(input));
+    }
+}
+
+
+===== Question 2 =====
+WAP to print duplicate characters from the String.
+
+Answer:
+public class FindDuplicates {
+    public static void printDuplicates(String str) {
+        int[] count = new int[256];
+        for (int i = 0; i < str.length(); i++) {
+            count[str.charAt(i)]++;
+        }
+        System.out.println("Duplicate characters in the string:");
+        for (int i = 0; i < 256; i++) {
+            if (count[i] > 1) {
+                System.out.println((char) i + " - " + count[i] + " times");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        String input = "hello world";
+        printDuplicates(input);
+    }
+}
+
+
+===== Question 3 =====
+WAP to check if “2552” is a palindrome or not.
+
+Answer:
+public class PalindromeCheck {
+    public static boolean isPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String input = "2552";
+        System.out.println("Is \"" + input + "\" a palindrome? " + isPalindrome(input));
+    }
+}
+
+
+===== Question 4 =====
+WAP to count the number of consonants, vowels, and special characters in a String.
+
+Answer:
+public class CountCharacters {
+    public static void countCharacters(String str) {
+        int vowels = 0, consonants = 0, special = 0;
+        str = str.toLowerCase();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowels++;
+                } else {
+                    consonants++;
+                }
+            } else {
+                special++;
+            }
+        }
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+        System.out.println("Special Characters: " + special);
+    }
+
+    public static void main(String[] args) {
+        String input = "Hello World! 123";
+        countCharacters(input);
+    }
+}
+
+
+===== Question 5 =====
+WAP to implement Anagram Checking with least inbuilt methods.
+
+Answer:
+public class AnagramCheck {
+    public static boolean areAnagrams(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+        int[] count = new int[256];
+        for (int i = 0; i < str1.length(); i++) {
+            count[str1.charAt(i)]++;
+            count[str2.charAt(i)]--;
+        }
+        for (int i = 0; i < 256; i++) {
+            if (count[i] != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        System.out.println("Are \"" + str1 + "\" and \"" + str2 + "\" anagrams? " + areAnagrams(str1, str2));
+    }
+}
+
+
+===== Question 6 =====
+WAP to implement Pangram Checking with least inbuilt methods.
+
+Answer:
+public class PangramCheck {
+    public static boolean isPangram(String str) {
+        boolean[] mark = new boolean[26];
+        str = str.toLowerCase();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                mark[ch - 'a'] = true;
+            }
+        }
+        for (boolean b : mark) {
+            if (!b) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String input = "The quick brown fox jumps over the lazy dog";
+        System.out.println("Is \"" + input + "\" a pangram? " + isPangram(input));
+    }
+}
+
+
+===== Question 7 =====
+WAP to find if a String contains all unique characters.
+
+Answer:
+public class UniqueCharacters {
+    public static boolean hasAllUnique(String str) {
+        boolean[] chars = new boolean[256];
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (chars[ch]) {
+                return false;
+            }
+            chars[ch] = true;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String input = "abcdefg";
+        System.out.println("Does \"" + input + "\" contain all unique characters? " + hasAllUnique(input));
+    }
+}
+
+
+===== Question 8 =====
+WAP to find the maximum occurring character in a String.
+
+Answer:
+public class MaxOccurringCharacter {
+    public static char findMaxOccurringChar(String str) {
+        int[] count = new int[256];
+        for (int i = 0; i < str.length(); i++) {
+            count[str.charAt(i)]++;
+        }
+        char maxChar = 0;
+        int maxCount = 0;
+        for (int i = 0; i < 256; i++) {
+            if (count[i] > maxCount) {
+                maxCount = count[i];
+                maxChar = (char) i;
+            }
+        }
+        return maxChar;
+    }
+
+    public static void main(String[] args) {
+        String input = "hello world";
+        System.out.println("Maximum occurring character in \"" + input + "\" is: " + findMaxOccurringChar(input));
+    }
+}
