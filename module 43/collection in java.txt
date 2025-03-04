@@ -1,0 +1,112 @@
+===== Question 1 =====
+What is the Collection framework in Java?
+
+Answer:
+The Collection framework in Java is a unified architecture for storing and manipulating groups of objects. It provides interfaces (like `List`, `Set`, `Queue`, etc.) and classes (like `ArrayList`, `LinkedList`, `HashSet`, etc.) to represent and manipulate collections of objects. The Collection framework simplifies tasks like searching, sorting, insertion, deletion, and manipulation of data.
+
+Key Interfaces:
+- `Collection`: The root interface for all collections.
+- `List`: An ordered collection that allows duplicate elements.
+- `Set`: A collection that does not allow duplicate elements.
+- `Queue`: A collection designed for holding elements before processing.
+- `Map`: A collection that stores key-value pairs (not part of the `Collection` interface but part of the framework).
+
+
+===== Question 2 =====
+What is the difference between ArrayList and LinkedList?
+
+Answer:
+1. **ArrayList**:
+   - Implements a dynamic array.
+   - Provides fast random access (O(1)) using indexes.
+   - Slower for insertion and deletion (O(n)) because elements need to be shifted.
+   - Consumes less memory as it only stores the data.
+
+2. **LinkedList**:
+   - Implements a doubly linked list.
+   - Provides fast insertion and deletion (O(1)) at the beginning and end.
+   - Slower for random access (O(n)) as it requires traversing the list.
+   - Consumes more memory as it stores both data and pointers to the next and previous nodes.
+
+
+===== Question 3 =====
+What is the difference between Iterator and ListIterator?
+
+Answer:
+1. **Iterator**:
+   - Can traverse elements in a collection in only one direction (forward).
+   - Can be used with any collection (e.g., `List`, `Set`, `Queue`).
+   - Provides methods like `hasNext()`, `next()`, and `remove()`.
+
+2. **ListIterator**:
+   - Can traverse elements in both directions (forward and backward).
+   - Can only be used with `List` collections.
+   - Provides additional methods like `hasPrevious()`, `previous()`, `add()`, and `set()`.
+
+
+===== Question 4 =====
+What is the difference between Iterator and Enumeration?
+
+Answer:
+1. **Iterator**:
+   - Introduced in Java 1.2 as part of the Collection framework.
+   - Can traverse elements in any collection (e.g., `List`, `Set`, `Queue`).
+   - Provides a `remove()` method to remove elements during iteration.
+   - More modern and flexible.
+
+2. **Enumeration**:
+   - Introduced in Java 1.0 and is considered legacy.
+   - Can only traverse elements in `Vector` and `Hashtable`.
+   - Does not provide a `remove()` method.
+   - Less flexible and rarely used in modern Java.
+
+
+===== Question 5 =====
+What is the difference between List and Set?
+
+Answer:
+1. **List**:
+   - Allows duplicate elements.
+   - Maintains the insertion order of elements.
+   - Provides indexed access to elements.
+   - Example: `ArrayList`, `LinkedList`.
+
+2. **Set**:
+   - Does not allow duplicate elements.
+   - Does not maintain the insertion order (except for `LinkedHashSet`).
+   - Does not provide indexed access to elements.
+   - Example: `HashSet`, `TreeSet`.
+
+
+===== Question 6 =====
+What is the difference between HashSet and TreeSet?
+
+Answer:
+1. **HashSet**:
+   - Stores elements in a hash table.
+   - Does not maintain any order of elements.
+   - Provides O(1) time complexity for basic operations like `add()`, `remove()`, and `contains()`.
+   - Allows `null` values.
+
+2. **TreeSet**:
+   - Stores elements in a red-black tree (balanced binary search tree).
+   - Maintains elements in sorted order (natural ordering or custom comparator).
+   - Provides O(log n) time complexity for basic operations.
+   - Does not allow `null` values.
+
+
+===== Question 7 =====
+What is the difference between Array and ArrayList?
+
+Answer:
+1. **Array**:
+   - Fixed in size; the size cannot be changed once declared.
+   - Can store both primitive data types (e.g., `int`, `char`) and objects.
+   - Does not provide built-in methods for manipulation (e.g., adding, removing elements).
+   - Example: `int[] arr = new int[10];`
+
+2. **ArrayList**:
+   - Dynamic in size; the size can grow or shrink as needed.
+   - Can only store objects (not primitive data types).
+   - Provides built-in methods for manipulation (e.g., `add()`, `remove()`, `get()`).
+   - Example: `ArrayList<Integer> list = new ArrayList<>();`
