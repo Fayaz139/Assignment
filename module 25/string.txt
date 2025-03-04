@@ -1,0 +1,68 @@
+===== Question 1 =====
+What is a Mutable String in Java? Explain with an example.
+
+Answer:
+In Java, a mutable string is a string that can be modified after it is created. The `StringBuilder` and `StringBuffer` classes are used to create mutable strings. Unlike the `String` class, which is immutable, these classes allow you to change the content of the string without creating a new object.
+
+Example:
+public class MutableStringExample {
+    public static void main(String[] args) {
+        StringBuilder mutableString = new StringBuilder("Hello");
+        mutableString.append(" World"); // Modifying the string
+        System.out.println("Mutable String: " + mutableString);
+    }
+}
+
+
+===== Question 2 =====
+WAP to reverse a String.
+Input: “PWSKILLS”
+Output: “SLLIKSWP”
+
+Answer:
+public class ReverseString {
+    public static void main(String[] args) {
+        String input = "PWSKILLS";
+        StringBuilder reversed = new StringBuilder(input).reverse();
+        System.out.println("Reversed String: " + reversed);
+    }
+}
+
+
+===== Question 3 =====
+WAP to reverse a sentence while preserving the position.
+Input: Think Twice
+Output: “knihT eciwT”
+
+Answer:
+public class ReverseSentence {
+    public static void main(String[] args) {
+        String input = "Think Twice";
+        String[] words = input.split(" ");
+        StringBuilder result = new StringBuilder();
+        
+        for (String word : words) {
+            StringBuilder reversedWord = new StringBuilder(word).reverse();
+            result.append(reversedWord).append(" ");
+        }
+        
+        System.out.println("Reversed Sentence: " + result.toString().trim());
+    }
+}
+
+
+===== Question 4 =====
+WAP to sort a String Alphabetically.
+
+Answer:
+import java.util.Arrays;
+
+public class SortString {
+    public static void main(String[] args) {
+        String input = "java";
+        char[] chars = input.toCharArray();
+        Arrays.sort(chars); // Sort the characters
+        String sortedString = new String(chars);
+        System.out.println("Sorted String: " + sortedString);
+    }
+}
